@@ -9,13 +9,149 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Cookie Loader Styles */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fef6f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .cookie {
+            width: 80px;
+            height: 80px;
+            background-color: #d7a86e;
+            background-image: radial-gradient(#e8bb81 15%, transparent 15%), 
+                              radial-gradient(#c99c63 15%, transparent 15%),
+                              radial-gradient(#b68d57 10%, transparent 10%);
+            background-size: 20px 20px, 30px 30px, 15px 15px;
+            background-position: 0 0, 10px 10px, 20px 20px;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 3s infinite linear;
+            box-shadow: 0 5px 15px rgba(107, 66, 38, 0.2);
+        }
+        
+        .cookie::before, .cookie::after, .cookie-chip {
+            content: '';
+            position: absolute;
+            background-color: #6b4226;
+            border-radius: 50%;
+        }
+        
+        .cookie::before {
+            width: 10px;
+            height: 10px;
+            top: 20px;
+            left: 25px;
+        }
+        
+        .cookie::after {
+            width: 8px;
+            height: 8px;
+            bottom: 25px;
+            right: 30px;
+        }
+        
+        .cookie-chip {
+            width: 7px;
+            height: 7px;
+            top: 40%;
+            left: 30%;
+        }
+        
+        .cookie-chip:nth-child(2) {
+            width: 9px;
+            height: 9px;
+            top: 60%;
+            left: 40%;
+        }
+        
+        .cookie-bite {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background-color: #fef6f0;
+            border-radius: 50%;
+            top: -10px;
+            right: -5px;
+            box-shadow: inset 0 -3px 5px rgba(107, 66, 38, 0.1);
+        }
+        
+        .crumb {
+            position: absolute;
+            background-color: #d7a86e;
+            background-image: radial-gradient(#e8bb81 30%, transparent 30%);
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(107, 66, 38, 0.1);
+        }
+        
+        .crumb:nth-child(1) {
+            top: -15px;
+            right: 15px;
+            width: 6px;
+            height: 6px;
+            animation: float 2s infinite ease-in-out;
+        }
+        
+        .crumb:nth-child(2) {
+            top: -5px;
+            right: -15px;
+            width: 4px;
+            height: 4px;
+            animation: float 2.3s infinite ease-in-out 0.3s;
+        }
+        
+        .crumb:nth-child(3) {
+            top: 10px;
+            right: -20px;
+            width: 5px;
+            height: 5px;
+            animation: float 1.7s infinite ease-in-out 0.7s;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
 </head>
 <body>
+    <!-- Cookie Loader -->
+    <div class="loader-container">
+        <div class="cookie">
+            <div class="cookie-bite"></div>
+            <div class="cookie-chip"></div>
+            <div class="cookie-chip"></div>
+        </div>
+        <div class="crumb-container">
+            <div class="crumb"></div>
+            <div class="crumb"></div>
+            <div class="crumb"></div>
+            <div class="crumb"></div>
+            <div class="crumb"></div>
+            <div class="crumb"></div>
+        </div>
+    </div>
+
     <div class="cookie-particles"></div>
     
     <header>
         <nav>
-            <div class="logo">Cookies</div>
+            <div class="logo"><a href="#home" style="text-decoration: none; color: inherit;">Cookies</a></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -66,40 +202,44 @@
                         <img src="assets/hari.jpg" alt="Harikrishnan J">
                     </div>
                     <h3>Harikrishnan J</h3>
-                    <p class="role">Multimedia Creator / UI UX / Systems Integration </p>
+                    <p class="role">Multimedia Creator / UI UX / Systems Integrator / Frontend developer </p>
                     <p class="bio">A multidisciplinary developer with expertise in multimedia creation, front-end development, and seamless hardware-software integration.</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/harikrishnanj2005/"target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a href="mailto:harikrishnanj2005@gmail.com"><i class="far fa-envelope"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/talismanhari"target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
                     <div class="profile-img">
-                        <img src="https://via.placeholder.com/150" alt="S Jeevan Narayanan">
+                        <img src="assets/jeevan.png" alt="S Jeevan Narayanan">
                     </div>
                     <h3>S Jeevan Narayanan</h3>
-                    <p class="role">UX Designer</p>
-                    <p class="bio">Crafting intuitive and delightful user experiences with a keen eye for detail.</p>
+                    <p class="role">IoT & AI Solutions Engineer</p>
+                    <p class="bio">Specialized in smart systems, microcontroller programming, and AI/ML integration. Proficient in Embedded C and web development, with strong problem-solving skills for building innovative and connected solutions.
+
+
+
+                    </p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/s-jeevan-narayanan-60681429a/"target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="far fa-envelope"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="mailto:s.jeevannarayanan@gmail.com"><i class="far fa-envelope"></i></a>
+                        <a href="https://github.com/jeevan200-cmd"target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
                     <div class="profile-img">
-                        <img src="https://via.placeholder.com/150" alt="Jophit Sebastian">
+                        <img src="assets/jophit.png" alt="Jophit Sebastian">
                     </div>
                     <h3>Jophit Sebastian</h3>
-                    <p class="role">Frontend Developer</p>
-                    <p class="bio">Turning designs into interactive experiences with clean, efficient code.</p>
+                    <p class="role">AI/ML Developer / Tech Communicator</p>
+                    <p class="bio">AI/ML Developer with a knack for seamless system integration and translating tech into clear, impactful communication.</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/jophitsebastian/"target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="far fa-envelope"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="mailto:jophits@gmail.com"><i class="far fa-envelope"></i></a>
+                        <a href="https://github.com/Joeseb100"target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
@@ -113,7 +253,7 @@
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/albin-jojo"target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a href="mailto:jojoalbin21@gmail.com"><i class="far fa-envelope"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/albinjojo"target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
@@ -122,12 +262,12 @@
                         <img src="assets/reibin.jpg" alt="Reibin Chacko Thomas">
                     </div>
                     <h3>Reibin Chacko Thomas</h3>
-                    <p class="role">Project Manager</p>
-                    <p class="bio">Orchestrating our team's efforts to deliver projects that exceed expectations.</p>
+                    <p class="role">Web Developer</p>
+                    <p class="bio">Web Developer crafting responsive, user-focused interfaces with clean code and intuitive design.</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/reibin-chacko-thomas-80937b326/"target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="far fa-envelope"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="mailto:reibinchackothomas2028@mca.ajce.inreibinchackothomas2028@mca.ajce.in"><i class="far fa-envelope"></i></a>
+                        <a href="https://github.com/Reibinchacko"target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
@@ -153,56 +293,6 @@
                             </div>
                         </div>
                     </a>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 2">
-                        <div class="overlay">
-                            <h3>Web Design</h3>
-                            <p>E-commerce platform for artisanal goods</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 3">
-                        <div class="overlay">
-                            <h3>Mobile App</h3>
-                            <p>Recipe sharing application</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 4">
-                        <div class="overlay">
-                            <h3>UI Design</h3>
-                            <p>Dashboard for a food delivery service</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 5">
-                        <div class="overlay">
-                            <h3>Packaging Design</h3>
-                            <p>Sustainable packaging for cookies</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 6">
-                        <div class="overlay">
-                            <h3>Social Media Campaign</h3>
-                            <p>Engagement strategy for a dessert brand</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -261,15 +351,73 @@
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-behance"></i></a>
+                    
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Cookies Creative Team. All rights reserved.</p>
+                <p>&copy; 2025 Cookies Creative Team. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Loader script
+        window.addEventListener('load', function() {
+            const loader = document.querySelector('.loader-container');
+            setTimeout(function() {
+                loader.style.opacity = '0';
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1500); // Show loader for 1.5 seconds
+            
+            // Create floating cookie crumbles
+            const particlesContainer = document.querySelector('.cookie-particles');
+            const particleCount = 20; // Number of particles
+            
+            for (let i = 0; i < particleCount; i++) {
+                createParticle(particlesContainer);
+            }
+            
+            // Create new particles periodically
+            setInterval(() => {
+                if (document.querySelectorAll('.cookie-particle').length < 30) {
+                    createParticle(particlesContainer);
+                }
+            }, 3000);
+        });
+        
+        function createParticle(container) {
+            const particle = document.createElement('div');
+            particle.classList.add('cookie-particle');
+            
+            // Random size between 3px and 8px
+            const size = Math.random() * 5 + 3;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random horizontal position
+            const posX = Math.random() * 100;
+            particle.style.left = `${posX}%`;
+            
+            // Random animation duration between 15s and 30s
+            const duration = Math.random() * 15 + 15;
+            particle.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            const delay = Math.random() * 10;
+            particle.style.animationDelay = `${delay}s`;
+            
+            container.appendChild(particle);
+            
+            // Remove particle after animation completes
+            setTimeout(() => {
+                if (particle.parentNode === container) {
+                    container.removeChild(particle);
+                }
+            }, (duration + delay) * 1000);
+        }
+    </script>
 </body>
 </html>
